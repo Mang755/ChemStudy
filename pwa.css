@@ -1,0 +1,174 @@
+body {
+  min-height: 100vh;
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.install-strip {
+  width: 100%;
+  margin: 0 0 14px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #eef4ff, #f8fbff);
+  border: 1px solid #cddcf6;
+  box-shadow: 0 10px 20px rgba(30, 60, 114, 0.08);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.install-strip[hidden] {
+  display: none;
+}
+
+.install-copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.install-copy strong {
+  display: block;
+  color: #16315f;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.install-copy p {
+  margin: 0;
+  color: #42526d;
+  line-height: 1.45;
+  font-size: 14px;
+  max-width: 520px;
+}
+
+.install-steps {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: #42526d;
+  line-height: 1.6;
+  display: grid;
+  gap: 6px;
+}
+
+.install-steps[hidden] {
+  display: none;
+}
+
+.install-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.install-actions .check-button,
+.install-actions .secondary-button {
+  white-space: nowrap;
+  padding: 10px 16px;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding-bottom: calc(116px + env(safe-area-inset-bottom, 0px));
+  }
+
+  body.app-installed {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .header {
+    padding: 16px 14px 14px;
+  }
+
+  .install-strip {
+    position: static;
+    width: 100%;
+    margin: 0 0 14px;
+    align-items: stretch;
+    gap: 14px;
+    border-radius: 18px;
+    box-shadow: 0 12px 24px rgba(16, 24, 40, 0.10);
+  }
+
+  .install-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .install-actions .check-button,
+  .install-actions .secondary-button {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    margin: 0 10px 10px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #dbe4f2;
+    border-radius: 999px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    box-shadow: 0 8px 22px rgba(30, 60, 114, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav button {
+    width: auto;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .container {
+    margin: 12px auto;
+    padding: 0 10px 130px;
+  }
+
+  .card-box {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .lesson-section,
+  .lesson-hero,
+  .resource-card {
+    border-radius: 16px;
+  }
+
+  .choice-row {
+    gap: 8px;
+  }
+
+  .choice-pill,
+  .option-pill {
+    min-height: 44px;
+    padding: 10px 12px;
+  }
+
+  .section-top,
+  .group-header,
+  .lesson-footer,
+  .resource-top {
+    align-items: flex-start;
+  }
+
+  .header-copy {
+    text-align: center;
+  }
+}

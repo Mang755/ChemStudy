@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#143a75">
+  <meta name="description" content="ChemStudy - химия пәніне арналған цифрлық оқу кеңістігі.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="ChemStudy">
+  <meta name="format-detection" content="telephone=no">
+  <title>ChemStudy</title>
+  <link rel="manifest" href="manifest.json?v=20260406-1">
+  <link rel="icon" href="icon.svg?v=20260322-2" type="image/svg+xml">
+  <link rel="icon" href="icon-192.png?v=20260322-2" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260322-2">
+  <link rel="stylesheet" href="style.css?v=20260415-5">
+  <link rel="stylesheet" href="pwa.css?v=20260415-4">
+  <link rel="stylesheet" href="teacher-portal.css?v=20260414-5">
+  <link rel="stylesheet" href="chatbot.css?v=20260408-2">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-brand">
+    <img class="header-logo" src="icon.svg?v=20260322-2" alt="ChemStudy логотипі">
+    <div class="header-copy">
+      <span class="section-eyebrow">Цифрлық химия платформасы</span>
+      <h1>ChemStudy</h1>
+      <p>Мобильді қосымшалар мен онлайн ресурстар арқылы химияны оқытуға арналған жинақы, түсінікті оқу кеңістігі.</p>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <button onclick="showPage('home')">Басты бет</button>
+  <button onclick="showPage('teacher')">Сыныптар</button>
+  <button onclick="showPage('resources')">Ресурстар</button>
+  <button onclick="showPage('chatbot')">Чатбот</button>
+  <button onclick="showPage('profile')">Мұғалім профилі</button>
+</nav>
+
+<main class="container">
+  <section id="installStrip" class="install-strip">
+    <div class="install-copy">
+      <strong>ChemStudy қосымшасын орнату</strong>
+      <p id="installMessage">Сайтты телефоннан жылдам ашу үшін оны қосымша ретінде орнатып қоюға болады.</p>
+      <ul id="installSteps" class="install-steps" hidden></ul>
+    </div>
+    <div class="install-actions">
+      <button id="installButton" class="check-button" type="button" hidden>Орнату</button>
+      <button id="installDismiss" class="secondary-button" type="button">Қадамдары</button>
+    </div>
+  </section>
+
+  <section id="home" class="page">
+    <div class="home-hero">
+      <div class="home-hero-copy">
+        <span class="section-eyebrow">Жинақы цифрлық орта</span>
+        <h2>Химия мұғаліміне арналған реттелген оқу кеңістігі</h2>
+        <p>ChemStudy ішінде сыныптар, тақырыптар, тапсырмалар, авторлық кітапша және мұғалім кабинеті бір құрылымға жинақталған.</p>
+        <div class="hero-note-row">
+          <span class="hero-note">Сабақтар дайын</span>
+          <span class="hero-note">10-сынып ЖМБ реттелген</span>
+          <span class="hero-note">Мұғалім профилі бар</span>
+        </div>
+        <div class="hero-actions">
+          <button class="back-button" type="button" onclick="showPage('teacher')">Сыныптарды ашу</button>
+          <button class="secondary-button" type="button" onclick="showPage('profile')">Мұғалім кабинеті</button>
+        </div>
+      </div>
+      <aside class="home-feature-panel">
+        <article class="home-feature-card home-feature-card--accent">
+          <span class="home-feature-kicker">Авторлық материал</span>
+          <h3>Жаңа кітапша</h3>
+          <p>Жаңартылған PDF нұсқа енді тікелей ашылады.</p>
+          <a class="secondary-button" href="materials/booklet/kyzyrbek-mangaz-kitapsha.pdf" target="_blank" rel="noopener noreferrer">PDF ашу</a>
+        </article>
+        <article class="home-feature-card">
+          <span class="home-feature-kicker">10-сынып</span>
+          <h3>ЖМБ мазмұны сәйкестендірілді</h3>
+          <p>X-XV тараулар кітаппен реттеліп, сабақтар жеке мазмұнмен толықтырылды.</p>
+        </article>
+        <article class="home-feature-card">
+          <span class="home-feature-kicker">Жеке кабинет</span>
+          <h3>ҚМЖ мен слайдтарды сақтау</h3>
+          <p>Әр мұғалім өз профилінде материалдарын сақтап, кейін қайта аша алады.</p>
+        </article>
+      </aside>
+    </div>
+
+    <div class="card-box home-support-grid">
+      <article class="card">
+        <h3>Бір жерде жиналған</h3>
+        <p>Сабаққа керек негізгі бөлімдер шашырамай, ретімен бір беттен ашылады.</p>
+      </article>
+      <article class="card">
+        <h3>Жылдам жұмыс</h3>
+        <p>Тақырып, тест, ресурс және мұғалім кабинетін бірнеше батырмамен тез ашуға болады.</p>
+      </article>
+      <article class="card">
+        <h3>Профильде сақталады</h3>
+        <p>Мұғалім профилінде ҚМЖ, слайд және басқа материалдар жеке сақталып тұрады.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="teacher" class="page" style="display:none;">
+    <h2>Сыныптар</h2>
+
+    <div class="card-box classes-grid">
+      <div class="card class-card" onclick="showPage('grade7')">
+        <h3>7-сынып</h3>
+      </div>
+
+      <div class="card class-card" onclick="showPage('grade8')">
+        <h3>8-сынып</h3>
+      </div>
+
+      <div class="card class-card" onclick="showPage('grade9')">
+        <h3>9-сынып</h3>
+      </div>
+
+      <div class="card class-card" onclick="showPage('grade10')">
+        <h3>10-сынып</h3>
+      </div>
+
+      <div class="card class-card" onclick="showPage('grade11')">
+        <h3>11-сынып</h3>
+      </div>
+    </div>
+  </section>
+  <section id="resources" class="page" style="display:none;">
+    <h2>Ресурстар</h2>
+    <p class="section-intro">Сабақты түсіндіру, бекіту, бағалау және визуализацияға көмектесетін пайдалы платформалар осы бөлімде жинақталған.</p>
+
+    <div class="card-box">
+      <div class="card">
+        <h3>Виртуалды зертханалар</h3>
+        <p>Химиялық процестерді қауіпсіз форматта модельдеуге және тәжірибені көрнекі көрсетуге арналған платформалар.</p>
+        <ul>
+          <li><a href="https://phet.colorado.edu/" target="_blank" rel="noopener noreferrer">PhET</a></li>
+          <li><a href="http://chemcollective.org/" target="_blank" rel="noopener noreferrer">ChemCollective</a></li>
+          <li><a href="https://praxilabs.com/" target="_blank" rel="noopener noreferrer">PraxiLabs</a></li>
+          <li><a href="https://gizmos.explorelearning.com/" target="_blank" rel="noopener noreferrer">Gizmos</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Интерактивті сабақ құралдары</h3>
+        <p>Оқушыны белсенді қатыстыруға және сабақты қызықты форматта өткізуге арналған сервистер.</p>
+        <ul>
+          <li><a href="https://genial.ly/" target="_blank" rel="noopener noreferrer">Genially</a></li>
+          <li><a href="https://nearpod.com/" target="_blank" rel="noopener noreferrer">Nearpod</a></li>
+          <li><a href="https://curipod.com/" target="_blank" rel="noopener noreferrer">Curipod</a></li>
+          <li><a href="https://wayground.com/" target="_blank" rel="noopener noreferrer">Wayground</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Бағалау және рефлексия</h3>
+        <p>Кері байланыс алуға, оқушы белсенділігін бақылауға және нәтижені бағалауға ыңғайлы құралдар.</p>
+        <ul>
+          <li><a href="https://www.mentimeter.com/" target="_blank" rel="noopener noreferrer">Mentimeter</a></li>
+          <li><a href="https://www.socrative.com/" target="_blank" rel="noopener noreferrer">Socrative</a></li>
+          <li><a href="https://padlet.com/" target="_blank" rel="noopener noreferrer">Padlet</a></li>
+          <li><a href="https://www.peardeck.com/" target="_blank" rel="noopener noreferrer">Pear Deck</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>3D модельдеу</h3>
+        <p>Молекула мен құрылымды кеңістікте көруге және визуалды түсінуге көмектесетін платформалар.</p>
+        <ul>
+          <li><a href="https://molview.org/" target="_blank" rel="noopener noreferrer">MolView</a></li>
+          <li><a href="https://avogadro.cc/" target="_blank" rel="noopener noreferrer">Avogadro</a></li>
+          <li><a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer">PubChem 3D</a></li>
+          <li><a href="https://web.chemdoodle.com/" target="_blank" rel="noopener noreferrer">ChemDoodle</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="chatbot" class="page" style="display:none;">
+    <h2>Чатбот</h2>
+
+    <div class="card chatbot-shell">
+      <div class="chatbot-header">
+        <div>
+          <h3>ChemStudy көмекшісі</h3>
+          <p>Бұл бөлім тақырыпты табуға, сабақ беттерін ашуға және химия бойынша қысқа түсіндірме алуға көмектеседі.</p>
+        </div>
+        <span id="chatbotModeBadge" class="task-badge">Offline</span>
+      </div>
+
+      <div class="chatbot-suggestions">
+        <button class="chatbot-chip" type="button" data-chatbot-prompt="10-сынып бөлімі қайда?">10-сынып бөлімі</button>
+        <button class="chatbot-chip" type="button" data-chatbot-prompt="§58 сабағын аш">§58 сабағы</button>
+        <button class="chatbot-chip" type="button" data-chatbot-prompt="Галогендер туралы айт">Галогендер</button>
+        <button class="chatbot-chip" type="button" data-chatbot-prompt="Мұғалім профилі қайда?">Мұғалім профилі</button>
+        <button class="chatbot-chip" type="button" data-chatbot-prompt="WhatsApp-қа жазу">WhatsApp</button>
+        <button class="chatbot-chip" type="button" data-chatbot-prompt="PDF кітапшаны ашу">PDF кітапша</button>
+      </div>
+
+      <div class="chatbot-window">
+        <div id="chatbotMessages" class="chatbot-messages" aria-live="polite"></div>
+
+        <form id="chatbotForm" class="chatbot-form">
+          <input
+            id="chatbotInput"
+            class="chatbot-input"
+            type="text"
+            placeholder="Сұрағыңызды жазыңыз: мысалы, §61 не туралы?"
+            autocomplete="off"
+          >
+          <button class="check-button" type="submit">Жіберу</button>
+        </form>
+      </div>
+
+      <div class="chatbot-note">
+        <strong>Не істей алады:</strong>
+        <p>Сайт ішіндегі бөлімдерді табуға, сабақ материалдарын ашуға және химия бойынша қысқа бағыт беруге көмектеседі.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="profile" class="page" style="display:none;"></section>
+
+  <section id="grade7" class="page" style="display:none;" data-static-content="true">
+    <h2>7-сынып</h2>
+    <div class="card-box">
+      <article class="card">
+        <h3>Бөлім туралы</h3>
+        <p>7-сыныпқа арналған сабақ материалдары, негізгі тақырыптар және қарапайым тапсырмалар осы бөлімде ретімен көрсетіледі.</p>
+        <div class="topic-list">
+          <div class="topic-item">Материалдар кезең-кезеңімен толықтырылады</div>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Қолдану бағыты</h3>
+        <p>Бұл сынып бөлімінде тақырыптарды ашып, тапсырма мен бекіту материалдарын бір жерден пайдалануға болады.</p>
+      </article>
+    </div>
+    <div class="page-actions">
+      <button class="back-button" onclick="showPage('teacher')">Сыныптарға оралу</button>
+    </div>
+  </section>
+
+  <section id="grade8" class="page" style="display:none;" data-static-content="true">
+    <h2>8-сынып</h2>
+    <div class="card-box">
+      <article class="card">
+        <h3>Бөлім туралы</h3>
+        <p>8-сыныпқа арналған материалдар, формуламен жұмыс және жаттығу тапсырмалары осы бөлімде ретімен беріледі.</p>
+        <div class="topic-list">
+          <div class="topic-item">Тақырыптық материалдар жаңартылып отырады</div>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Қолдану бағыты</h3>
+        <p>Сабаққа керек бөлімдерді осы жерден ашып, бекіту мен тапсырма материалдарын ықшам түрде пайдалануға болады.</p>
+      </article>
+    </div>
+    <div class="page-actions">
+      <button class="back-button" onclick="showPage('teacher')">Сыныптарға оралу</button>
+    </div>
+  </section>
+
+  <section id="grade9" class="page" style="display:none;" data-static-content="true">
+    <h2>9-сынып</h2>
+    <div class="card-box">
+      <article class="card">
+        <h3>Бөлім туралы</h3>
+        <p>9-сыныпқа арналған тереңдетілген тақырыптар, талдау тапсырмалары және бекіту материалдары осы бөлімде жиналады.</p>
+        <div class="topic-list">
+          <div class="topic-item">Материалдар сынып мазмұнына сай кезең-кезеңімен толтырылады</div>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Қолдану бағыты</h3>
+        <p>Бұл сыныпта тақырыпты жылдам ашып, сабақ барысына сай материал мен тапсырмаларды бір беттен қолдануға болады.</p>
+      </article>
+    </div>
+    <div class="page-actions">
+      <button class="back-button" onclick="showPage('teacher')">Сыныптарға оралу</button>
+    </div>
+  </section>
+
+  <section id="grade10" class="page" style="display:none;" data-static-content="true">
+    <h2>10-сынып</h2>
+
+    <div class="card-box">
+      <article class="card">
+        <h3>Бөлім туралы</h3>
+        <p>Бұл бөлім Оспанова М.Қ. 10-сынып ЖМБ оқулығындағы тараулар мен параграфтарға сәйкестендірілді.</p>
+        <p>Тақырыпты басқанда бөлім беті ашылады, ал сабақ беттерінде интерактивті тапсырмалар мен қосымша материалдар көрсетіледі.</p>
+      </article>
+    </div>
+
+    <div class="card">
+      <h3>Тараулар</h3>
+      <div class="topic-list">
+        <div class="topic-item" onclick="showPage('topic1')">I тарау. Атом құрылысы</div>
+        <div class="topic-item" onclick="showPage('topic2')">II тарау. Химиялық элементтер мен олардың қосылыстары қасиеттерінің өзгеру периодтылығы</div>
+        <div class="topic-item" onclick="showPage('topic3')">III тарау. Химиялық байланыс</div>
+        <div class="topic-item" onclick="showPage('topic4')">IV тарау. Стехиометрия</div>
+        <div class="topic-item" onclick="showPage('topic5')">V тарау. Термодинамикаға кіріспе</div>
+        <div class="topic-item" onclick="showPage('topic6')">VI тарау. Кинетика</div>
+        <div class="topic-item" onclick="showPage('topic7')">VII тарау. Химиялық тепе-теңдік</div>
+        <div class="topic-item" onclick="showPage('topic8')">VIII тарау. Тотығу-тотықсыздану реакциялары</div>
+        <div class="topic-item" onclick="showPage('topic9')">IX тарау. Химиядағы аналитикалық әдістер</div>
+        <div class="topic-item" onclick="showPage('topic10')">X тарау. 17-топ элементтері</div>
+        <div class="topic-item" onclick="showPage('topic11')">XI тарау. 2(II) топ элементтері</div>
+        <div class="topic-item" onclick="showPage('topic12')">XII тарау. Органикалық химияға кіріспе</div>
+        <div class="topic-item" onclick="showPage('topic13')">XIII тарау. Қанықпаған көмірсутектер</div>
+        <div class="topic-item" onclick="showPage('topic14')">XIV тарау. Галогеналкандар</div>
+        <div class="topic-item" onclick="showPage('topic15')">XV тарау. Спирттер</div>
+      </div>
+      <div class="page-actions">
+        <button class="back-button" onclick="showPage('teacher')">Сыныптарға оралу</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="grade11" class="page" style="display:none;" data-static-content="true">
+    <h2>11-сынып</h2>
+    <div class="card-box">
+      <article class="card">
+        <h3>Бөлім туралы</h3>
+        <p>11-сыныпқа арналған қорытындылау, жүйелеу және дайындық материалдары осы бөлімде ретімен көрсетіледі.</p>
+        <div class="topic-list">
+          <div class="topic-item">Материалдар дайын болған сайын осы бөлімге енгізіледі</div>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Қолдану бағыты</h3>
+        <p>Қайталау мен қорытынды тақырыптарды осы бөлімнен ашып, сабақта немесе дайындық кезінде бірден пайдалануға болады.</p>
+      </article>
+    </div>
+    <div class="page-actions">
+      <button class="back-button" onclick="showPage('teacher')">Сыныптарға оралу</button>
+    </div>
+  </section>
+
+  <section id="topic1" class="page" style="display:none;" data-static-content="true">
+    <h2>I тарау. Атом құрылысы</h2>
+    <div class="card">
+      <p>Бұл бөлімге атом құрылысы тақырыбы бойынша сабақ материалдары кезең-кезеңімен енгізіледі.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic2" class="page" style="display:none;" data-static-content="true">
+    <h2>II тарау. Химиялық элементтер мен олардың қосылыстары қасиеттерінің өзгеру периодтылығы</h2>
+    <div class="card">
+      <p>Бұл бөлімге химиялық элементтер мен олардың қосылыстары бойынша материалдар жүктеледі.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic3" class="page" style="display:none;" data-static-content="true">
+    <h2>III тарау. Химиялық байланыс</h2>
+    <div class="card">
+      <p>Бұл бөлімге химиялық байланыс тақырыбы бойынша сабақ мазмұны енгізіледі.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic4" class="page" style="display:none;" data-static-content="true">
+    <h2>IV тарау. Стехиометрия</h2>
+    <div class="card">
+      <p>Бұл бөлімге стехиометрия тақырыбы бойынша сабақ материалдары жүктеледі.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic5" class="page" style="display:none;" data-static-content="true">
+    <h2>V тарау. Термодинамикаға кіріспе</h2>
+    <div class="card">
+      <p>Бұл бөлімге термодинамикаға кіріспе тақырыбы бойынша теориялық материалдар жинақталады.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic6" class="page" style="display:none;" data-static-content="true">
+    <h2>VI тарау. Кинетика</h2>
+    <div class="card">
+      <p>Бұл бөлімге кинетика бойынша теориялық және практикалық материалдар енгізіледі.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic7" class="page" style="display:none;" data-static-content="true">
+    <h2>VII тарау. Химиялық тепе-теңдік</h2>
+    <div class="card">
+      <p>Бұл бөлімде химиялық тепе-теңдікке қатысты сабақ материалдары көрсетіледі.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic8" class="page" style="display:none;" data-static-content="true">
+    <h2>VIII тарау. Тотығу-тотықсыздану реакциялары</h2>
+    <div class="card">
+      <p>Бұл бөлімге тотығу-тотықсыздану реакциялары бойынша сабақ мазмұны орналастырылады.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic9" class="page" style="display:none;" data-static-content="true">
+    <h2>IX тарау. Аналитикалық әдістер</h2>
+    <div class="card">
+      <p>Бұл бөлімде аналитикалық әдістер бойынша сабақтар мен зертханалық жұмыстар жинақталады.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic10" class="page" style="display:none;" data-static-content="true">
+    <h2>X тарау. 17-топ элементтері</h2>
+    <div class="card">
+      <p>Бұл бөлімге галогендер тақырыбы бойынша сабақтар мен практикалық тапсырмалар енгізіледі.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic11" class="page" style="display:none;" data-static-content="true">
+    <h2>XI тарау. 2(II) топ элементтері</h2>
+    <div class="card">
+      <p>Бұл бөлімге сілтілік-жер металдары және олардың қосылыстары бойынша материалдар қосылады.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic12" class="page" style="display:none;" data-static-content="true">
+    <h2>XII тарау. Органикалық химияға кіріспе</h2>
+    <div class="card">
+      <p>Бұл бөлімде органикалық химияға кіріспе, көміртек атомының ерекшелігі және изомерия тақырыптары жинақталады.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic13" class="page" style="display:none;" data-static-content="true">
+    <h2>XIII тарау. Қанықпаған көмірсутектер</h2>
+    <div class="card">
+      <p>Бұл бөлімге қанықпаған көмірсутектер тақырыбы бойынша сабақ материалдары енгізіледі.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic14" class="page" style="display:none;" data-static-content="true">
+    <h2>XIV тарау. Галогеналкандар</h2>
+    <div class="card">
+      <p>Бұл бөлімге галогеналкандар тақырыбы бойынша теориялық және практикалық материалдар қосылады.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+
+  <section id="topic15" class="page" style="display:none;" data-static-content="true">
+    <h2>XV тарау. Спирттер</h2>
+    <div class="card">
+      <p>Бұл бөлімге спирттер тақырыбы бойынша сабақ материалдары кезең-кезеңімен жүктеледі.</p>
+      <button class="back-button" onclick="showPage('grade10')">10-сыныпқа оралу</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>Автор: Қызырбек Маңғаз</p>
+</footer>
+
+<script charset="UTF-8" src="lesson-data.js?v=20260414-2"></script>
+<script charset="UTF-8" src="lesson-data-extra.js?v=20260414-2"></script>
+<script charset="UTF-8" src="lesson-data-overrides.js?v=20260414-9"></script>
+<script charset="UTF-8" src="script.js?v=20260415-6"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script charset="UTF-8" src="supabase-config.js?v=20260406-1"></script>
+<script charset="UTF-8" src="supabase-cloud.js?v=20260414-2"></script>
+<script charset="UTF-8" src="teacher-portal.js?v=20260415-4"></script>
+<script charset="UTF-8" src="ai-config.js?v=20260415-1"></script>
+<script charset="UTF-8" src="chatbot.js?v=20260415-1"></script>
+<script charset="UTF-8" src="pwa.js?v=20260415-2"></script>
+
+</body>
+</html>

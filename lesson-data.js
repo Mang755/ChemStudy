@@ -1,0 +1,1 @@
+window.lessonContent = window.lessonContent || {};

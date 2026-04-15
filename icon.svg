@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">ChemStudy chemistry emblem</title>
+  <desc id="desc">A chemistry flask with atomic orbits and molecule bubbles.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#173a7a"/>
+      <stop offset="100%" stop-color="#2f5fb2"/>
+    </linearGradient>
+    <linearGradient id="liquid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7ce8ef"/>
+      <stop offset="100%" stop-color="#17a5b3"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#cde8ff" stop-opacity="0.75"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0d2048" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="108" fill="url(#bg)"/>
+  <circle cx="126" cy="112" r="82" fill="#ffffff" fill-opacity="0.08"/>
+  <circle cx="404" cy="412" r="94" fill="#6fc8f2" fill-opacity="0.12"/>
+  <circle cx="378" cy="130" r="56" fill="#ffffff" fill-opacity="0.08"/>
+
+  <g fill="none" stroke="#a7d7f7" stroke-linecap="round" filter="url(#shadow)">
+    <ellipse cx="258" cy="210" rx="158" ry="70" stroke-width="12"/>
+    <ellipse cx="258" cy="210" rx="82" ry="166" stroke-width="10" transform="rotate(-25 258 210)"/>
+    <ellipse cx="258" cy="210" rx="82" ry="166" stroke-width="10" transform="rotate(25 258 210)"/>
+  </g>
+
+  <g fill="#dff4ff">
+    <circle cx="120" cy="209" r="18"/>
+    <circle cx="332" cy="98" r="17"/>
+    <circle cx="402" cy="255" r="20"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <path d="M226 104h60v64l72 125c11 18 16 39 16 60 0 62-50 112-112 112h-12c-62 0-112-50-112-112 0-21 5-42 16-60l72-125Z" fill="#f8fcff" stroke="#d8ecfb" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M189 326c20-16 45-24 71-24 28 0 56 10 78 28l9 8c-7 41-42 72-85 72h-12c-43 0-79-31-85-73Z" fill="url(#liquid)"/>
+    <path d="M196 356c20 12 42 18 67 18 29 0 55-8 78-25" fill="none" stroke="#dffbfd" stroke-linecap="round" stroke-width="10"/>
+    <path d="M214 144h84" fill="none" stroke="#d8ecfb" stroke-linecap="round" stroke-width="10"/>
+    <path d="M235 82h42a14 14 0 0 1 14 14v28h-70V96a14 14 0 0 1 14-14Z" fill="url(#glow)"/>
+  </g>
+
+  <g fill="#dffbfd">
+    <circle cx="216" cy="330" r="10"/>
+    <circle cx="286" cy="346" r="12"/>
+    <circle cx="315" cy="313" r="8"/>
+  </g>
+
+  <g fill="none" stroke="#a7d7f7" stroke-linecap="round" stroke-width="8">
+    <path d="M122 360h58"/>
+    <path d="M137 331v58"/>
+    <path d="M348 158h54"/>
+    <path d="M375 131v54"/>
+  </g>
+</svg>
